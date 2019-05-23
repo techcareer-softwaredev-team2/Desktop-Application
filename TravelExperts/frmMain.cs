@@ -11,6 +11,20 @@ using TravelExpertsData;
 
 namespace TravelExperts
 {
+    /*
+     * Travel Experts 2.0
+     * 
+     * Purpose: Application created for final threaded project for 
+     *          TECHCareer Software Developer program. This is an application
+     *          that accesses a database and processes the information into
+     *          easily interpreted data for the user. Travel Experts agents will be
+     *          able to add, modify, and delete packages, products, and/or suppliers.
+     *          It has an easy to follow UI and easy to follow steps.
+     * Authors: Mingyu Zhang, Kolin Lovett, Ryan Dionne, Fred Fernandez
+     * Date started: April 01, 2019
+     * Date submitted: May 24, 2019
+     */
+
     public partial class frmMain : Form
     {
         // List<string> tableNames = null; //all table names // use this for combobox implementation
@@ -27,8 +41,6 @@ namespace TravelExperts
 
         Suppliers currentSupplier = null; // empty supplier
         List<Suppliers> suppliersList = null;//empty products list 
-
-        List<Products_Suppliers> productSuppliers = null; //empt products_suppliers list
 
         public frmMain()
         {
@@ -56,7 +68,7 @@ namespace TravelExperts
             DisplaySuppliers();
         }
 
-        // display packages in DB method
+        // display packages after getting list by DB method
         public void DisplayPackages()
         {
             packagesList = PackagesDB.GetPackages();
@@ -75,7 +87,7 @@ namespace TravelExperts
             }
         }
 
-        // display products in DB method
+        // display products after getting list by DB method
         private void DisplayProducts()
         {
             productsList = ProductsDB.GetProducts();
@@ -93,7 +105,7 @@ namespace TravelExperts
             }
         }
 
-        // display suppliers in DB method
+        // display suppliers after getting list by DB method
         private void DisplaySuppliers()
         {
             suppliersList = SuppliersDB.GetSuppliers();
@@ -176,7 +188,7 @@ namespace TravelExperts
                 }
                 catch
                 {
-                    MessageBox.Show("Please select an item from the list before clicking the View button.");
+                    MessageBox.Show("Please select an item from the list before viewing.", "Select an Item");
                 }
             }
             else if (radSuppliers.Checked)
@@ -191,7 +203,7 @@ namespace TravelExperts
                 }
                 catch
                 {
-                    MessageBox.Show("Please select an item from the list before clicking the View button.");
+                    MessageBox.Show("Please select an item from the list before viewing.", "Select an Item");
                 }
             }
         }

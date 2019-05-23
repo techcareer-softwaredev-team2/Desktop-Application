@@ -8,6 +8,16 @@ using System.Threading.Tasks;
 
 namespace TravelExpertsData
 {
+    /*
+     * Travel Experts 2.0
+     * 
+     * Purpose: Packages_Products_Suppliers database and methods
+     * Authors: Mingyu Zhang, Kolin Lovett, Ryan Dionne, Fred Fernandez
+     * Date started: April 01, 2019
+     * Date submitted: May 24, 2019
+     * NOTES: Majority of code for class library for TravelExpertsDB created by Mingyu
+     */
+
     public static class Packages_Products_SuppliersDB
     {
         // get all PackageIds  
@@ -73,12 +83,13 @@ namespace TravelExpertsData
             return productSupplierIds;
         }
 
+        // get product_suppliers by package IDs
         public static Packages_Products_Suppliers GetProductSupplierByIds(int packageId)
         {
             Packages_Products_Suppliers productSupplierByIds = new Packages_Products_Suppliers();
             int id;
 
-            //create the conneciton
+            // create the conneciton
             using (SqlConnection connection = TravelExpertsDB.GetConnection())
             {
                 // create select command
