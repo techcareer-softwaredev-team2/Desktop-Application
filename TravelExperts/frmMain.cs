@@ -28,7 +28,6 @@ namespace TravelExperts
         Suppliers currentSupplier = null; // empty supplier
         List<Suppliers> suppliersList = null;//empty products list 
 
-        Products_Suppliers currentProductSupplier = null; // empty product supplier
         List<Products_Suppliers> productSuppliers = null; //empt products_suppliers list
 
         public frmMain()
@@ -41,21 +40,23 @@ namespace TravelExperts
             // LoadComboBox(); // for combobox use
         }
 
+        // when Packages radio button selected
         private void radPackages_CheckedChanged(object sender, EventArgs e)
         {
             DisplayPackages();
         }
-
+        // when Products radio button selected
         private void radProducts_CheckedChanged(object sender, EventArgs e)
         {
             DisplayProducts();
         }
-
+        // when Supplier radio button selected
         private void radSuppliers_CheckedChanged(object sender, EventArgs e)
         {
             DisplaySuppliers();
         }
 
+        // display packages in DB method
         public void DisplayPackages()
         {
             packagesList = PackagesDB.GetPackages();
@@ -74,6 +75,7 @@ namespace TravelExperts
             }
         }
 
+        // display products in DB method
         private void DisplayProducts()
         {
             productsList = ProductsDB.GetProducts();
@@ -91,6 +93,7 @@ namespace TravelExperts
             }
         }
 
+        // display suppliers in DB method
         private void DisplaySuppliers()
         {
             suppliersList = SuppliersDB.GetSuppliers();
@@ -108,24 +111,13 @@ namespace TravelExperts
             }
         }
 
-        private void DisplayProductSupplier()
-        {
-            productSuppliers = Products_SuppliersDB.GetProductSupplier();
-            if (productSuppliers != null) // if we have product suppliers to display
-            {
-                lstView.Items.Clear();//start with empty list box
-                foreach (Products_Suppliers prodsup in productSuppliers)
-                {
-                    lstView.Items.Add(prodsup);
-                }
-            }
-        }
-
+        // exit the app
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // add item button based on which radio button is selected
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (radPackages.Checked == false && radProducts.Checked == false && radSuppliers.Checked == false)
@@ -150,6 +142,7 @@ namespace TravelExperts
             this.lstView.Refresh();
         }
 
+        // view item button based on which radio button and item is selected
         private void btnView_Click(object sender, EventArgs e)
         {
             if (radPackages.Checked == false && radProducts.Checked == false && radSuppliers.Checked == false)
@@ -168,7 +161,7 @@ namespace TravelExperts
                 }
                 catch
                 {
-                    MessageBox.Show("Please select an item from the list before clicking the View button.");
+                    MessageBox.Show("Please select an item from the list before viewing.", "Select an Item");
                 }
             }
             else if (radProducts.Checked)
@@ -203,6 +196,7 @@ namespace TravelExperts
             }
         }
 
+        // delete item button based on which radio button and item is selected
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (radPackages.Checked == false && radProducts.Checked == false && radSuppliers.Checked == false)

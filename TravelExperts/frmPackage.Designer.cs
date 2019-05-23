@@ -367,7 +367,7 @@
             this.ClientSize = new System.Drawing.Size(339, 524);
             this.Controls.Add(this.pnlPackages);
             this.Name = "frmPackage";
-            this.Text = "Packages";
+            this.Text = "Travel Experts | Package";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPackage_FormClosing);
             this.Load += new System.EventHandler(this.frmViewPackage_Load);
             this.pnlPackages.ResumeLayout(false);

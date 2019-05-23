@@ -229,7 +229,7 @@
             this.ClientSize = new System.Drawing.Size(339, 524);
             this.Controls.Add(this.pnlProducts);
             this.Name = "frmProduct";
-            this.Text = "frmViewProduct";
+            this.Text = "Travel Experts | Product";
             this.Load += new System.EventHandler(this.frmViewProduct_Load);
             this.pnlProducts.ResumeLayout(false);
             this.pnlProducts.PerformLayout();
